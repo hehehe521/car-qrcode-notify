@@ -6,7 +6,7 @@ addEventListener('fetch', event => {
 });
 
 //防止被滥用，在添加车辆信息时需要用来鉴权
-const API_KEY = "sk-@Admin123";
+const API_KEY = "He790626";
 const notifyMessage = "您好，有人需要您挪车，请及时处理。";
 const sendSuccessMessage = "您好，我已收到你的挪车通知，我正在赶来的路上，请稍等片刻！";
 //300秒内可发送5次通知
@@ -17,7 +17,7 @@ const rateLimitMessage = "我正在赶来的路上,请稍等片刻~~~";
 
 //通知类型，其他的通知类型可自行实现
 const notifyTypeMap = [
-    { "id": "1", "name": "WxPusher", "functionName": wxpusher, "tip": "\r\nAT_xxxxxx|UID_xxxxxx" },
+    { "id": "1", "name": "WxPusher", "functionName": wxpusher, "tip": "\r\nAT_T7fwlEck0BKUEfNHwVqbw58ATsOJ1vWj|UID_8F8ActyXLvaMshFpOs99Rdfowvob" },
     { "id": "2", "name": "Bark", "functionName": bark, "tip": "\r\ntoken|soundName\r\n\r\n注：token为xxxxxx代表的值，直接输入该值即可，请勿输入完整链接（https://api.day.app/xxxxxx），soundName为铃声名称（默认使用：multiwayinvitation），如需自定义铃声需要把铃声文件先上传到BarkApp" },
     { "id": "3", "name": "飞书机器人", "functionName": feishu, "tip": "\r\ntoken\r\n\r\n注：token为xxxxxx代表的值，直接输入该值即可，请勿输入完整链接（https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxx）" },
     { "id": "4", "name": "企业微信机器人", "functionName": weixin, "tip": "\r\ntoken\r\n\r\n注：token为xxxxxx代表的值，直接输入该值即可，请勿输入完整链接（https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxxx）" },
