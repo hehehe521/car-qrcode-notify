@@ -8,7 +8,7 @@ addEventListener('fetch', event => {
 //防止被滥用，在添加车辆信息时需要用来鉴权
 const API_KEY = "He790626";
 const notifyMessage = "您好，有人需要您挪车，请及时处理。";
-const sendSuccessMessage = "您好，我已收到你的挪车通知，我正在赶来的路上，请稍等片刻！";
+const sendSuccessMessage = "您好，我已收到你的挪车通知，请稍等片刻！";
 //300秒内可发送5次通知
 const rateLimitDelay = 300;
 const rateLimitMaxRequests = 5;
@@ -1751,7 +1751,7 @@ async function pushplus(token, message) {
     const response = await postRequest(reqUrl, jsonBody);
     const json = await response.json();
     const { code } = json;
-    if (code == 0) {
+    if (code == 200) {
         return { code: 200, data: sendSuccessMessage, message: "success" };
     }
     else {
