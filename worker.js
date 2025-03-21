@@ -1745,9 +1745,8 @@ async function pushplus(token, message) {
     const reqUrl = `http://www.pushplus.plus/send/${token}`;
     const jsonBody = {
         "msg_type": "text",
-        "content": {
-            "text": message
-        }
+        "title":"挪车通知",
+        "content": message
     }
     const response = await postRequest(reqUrl, jsonBody);
     const json = await response.json();
