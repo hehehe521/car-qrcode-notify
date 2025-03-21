@@ -17,9 +17,9 @@ const rateLimitMessage = "我正在赶来的路上,请稍等片刻~~~";
 
 //通知类型，其他的通知类型可自行实现
 const notifyTypeMap = [
-    { "id": "1", "name": "WxPusher", "functionName": wxpusher, "tip": "\r\nAT_T7fwlEck0BKUEfNHwVqbw58ATsOJ1vWj|UID_8F8ActyXLvaMshFpOs99Rdfowvob" },
+    { "id": "1", "name": "WxPusher", "functionName": wxpusher, "tip": "\r\nAT_xxx|UID_xxx" },
     { "id": "2", "name": "Bark", "functionName": bark, "tip": "\r\ntoken|soundName\r\n\r\n注：token为xxxxxx代表的值，直接输入该值即可，请勿输入完整链接（https://api.day.app/xxxxxx），soundName为铃声名称（默认使用：multiwayinvitation），如需自定义铃声需要把铃声文件先上传到BarkApp" },
-    { "id": "3", "name": "飞书机器人", "functionName": feishu, "tip": "\r\ntoken\r\n\r\n注：token为xxxxxx代表的值，直接输入该值即可，请勿输入完整链接（https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxx）" },
+    { "id": "3", "name": "pushplus", "functionName": pushplus, "tip": "\r\ntoken\r\n\r\n注：token为xxxxxx代表的值，直接输入该值即可，请勿输入完整链接（http://www.pushplus.plus/send/xxxxxx）" },
     { "id": "4", "name": "企业微信机器人", "functionName": weixin, "tip": "\r\ntoken\r\n\r\n注：token为xxxxxx代表的值，直接输入该值即可，请勿输入完整链接（https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxxx）" },
     { "id": "5", "name": "钉钉机器人", "functionName": dingtalk, "tip": "\r\ntoken\r\n\r\n注：token为xxxxxx代表的值，直接输入该值即可，请勿输入完整链接（https://oapi.dingtalk.com/robot/send?access_token=xxxxxx）" },
     { "id": "6", "name": "NapCatQQ", "functionName": onebot, "tip": "http://127.0.0.1:8000/send_private_msg|access_token|接收人QQ号" },
@@ -602,7 +602,7 @@ async function index1(id) {
     <body>
         <div class="container">
             <h1>通知车主挪车</h1>
-            <p>如需通知车主，请点击以下按钮</p>
+            <p>不好意思阻碍到您的出行了<br>请通过以下方式联系我，我会立即前来挪车</p>
             <button class="notify-btn hide-notify" onclick="notifyOwner()">通知车主挪车</button>                    
             <button class="call-btn hide-call" onclick="callOwner()">拨打车主电话</button>
         </div>
@@ -1741,8 +1741,8 @@ async function bark(token, message) {
     }
 }
 
-async function feishu(token, message) {
-    const reqUrl = `https://open.feishu.cn/open-apis/bot/v2/hook/${token}`;
+async function pushplus(token, message) {
+    const reqUrl = `http://www.pushplus.plus/send/${token}`;
     const jsonBody = {
         "msg_type": "text",
         "content": {
